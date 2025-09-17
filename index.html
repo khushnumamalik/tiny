@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiny Treasures - Jewelry Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -1423,16 +1423,19 @@
         }
 
         .social-icon i.fab.fa-instagram {
-            color: #E4405F;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .social-icon i.fab.fa-facebook-f {
+            color: #1877F2;
         }
 
         .social-icon i.fab.fa-x-twitter {
-    color: #000; /* ya jo bhi aapko color chahiye */
-}
-        
-
-
-       
+            color: #000000;
+        }
 
         .footer-column {
             display: flex;
@@ -1714,9 +1717,7 @@
             .gallery-image-container:hover .gallery-image {
                 transform: scale(1.05);
             }
- .social-icon i.fab.fa-facebook-f {
-            color: #1877F2;
-        }
+
             .video-overlay {
                 position: absolute;
                 top: 50%;
@@ -2311,8 +2312,7 @@
                                 <i class="fab fa-facebook-f"></i>
                             </div>
                             <div class="social-icon">
-                            <i class="fab fa-x-twitter"></i>
-
+                                <i class="fab fa-x-twitter" style="font-weight: 900;"></i>
                             </div>
                         </div>
                     </div>
