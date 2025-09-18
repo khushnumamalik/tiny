@@ -1,9 +1,13 @@
-<!DOCTYPE html>
+
+      <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tiny Treasures - Jewelry Store</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -12,9 +16,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Top Bar */
@@ -629,10 +641,13 @@
             text-align: center;
             /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
             transition: transform 0.3s ease;
+            will-change: transform;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) translateZ(0);
         }
 
         .product-image {
@@ -730,10 +745,13 @@
             padding: 20px;
             /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
             transition: transform 0.3s ease;
+            will-change: transform;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         .new-product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) translateZ(0);
         }
 
         .new-product-image {
@@ -1044,10 +1062,13 @@
             /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
             transition: transform 0.3s ease;
             text-align: center;
+            will-change: transform;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         .gift-hamper-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) translateZ(0);
         }
 
         .gift-hamper-image {
@@ -1546,6 +1567,18 @@
             font-size: 12px;
         }
 
+        /* Mobile scroll optimization */
+        @media (max-width: 768px) {
+            * {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            body {
+                -webkit-overflow-scrolling: touch;
+                overflow-x: hidden;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
@@ -1668,6 +1701,12 @@
                 padding: 0 20px;
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .image-gallery-grid::-webkit-scrollbar {
+                display: none;
             }
 
             .gallery-nav {
@@ -1766,13 +1805,7 @@
                 gap: 10px;
             }
 
-            .newsletter-input {
-                /* border-radius: 5px; */
-            }
 
-            .newsletter-submit {
-                /* border-radius: 5px; */
-            }
 
             .footer-content {
                 flex-direction: column;
@@ -1815,6 +1848,13 @@
                 gap: 20px;
                 padding: 0 20px;
                 scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .top-product-grid::-webkit-scrollbar {
+                display: none;
             }
 
             .product-card {
@@ -1828,6 +1868,13 @@
                 gap: 20px;
                 padding: 0 20px;
                 scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .gift-hampers-grid::-webkit-scrollbar {
+                display: none;
             }
 
             .gift-hamper-card {
@@ -2494,18 +2541,25 @@
                 if (slider.element) {
                     let startX = 0;
                     let scrollLeft = 0;
+                    let isScrolling = false;
 
                     slider.element.addEventListener('touchstart', function(e) {
                         startX = e.touches[0].pageX - slider.element.offsetLeft;
                         scrollLeft = slider.element.scrollLeft;
-                    });
+                        isScrolling = true;
+                    }, { passive: true });
 
                     slider.element.addEventListener('touchmove', function(e) {
-                        e.preventDefault();
+                        if (!isScrolling) return;
+                        
                         const x = e.touches[0].pageX - slider.element.offsetLeft;
-                        const walk = (x - startX) * 2;
+                        const walk = (x - startX) * 1.5; // Reduced multiplier for smoother scrolling
                         slider.element.scrollLeft = scrollLeft - walk;
-                    });
+                    }, { passive: true });
+
+                    slider.element.addEventListener('touchend', function(e) {
+                        isScrolling = false;
+                    }, { passive: true });
                 }
             });
         }
