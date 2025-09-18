@@ -1,5 +1,5 @@
 
-      <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -601,11 +601,62 @@
         }
 
             .top-product-title {
-                font-size: 24px;
+                font-size: 40px;
                 font-weight: bold;
                 color: #8C4F47;
                 margin: 0;
             }
+
+        .top-product-controls {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 30px;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        .mobile-nav {
+            display: none;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: #006E5F;
+            padding: 0;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        .filter-btn:hover {
+            color: #8C4F47;
+        }
+
+        .filter-btn.active {
+            color: #8C4F47;
+        }
+
+        .filter-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #8C4F47;
+        }
 
         .top-product-nav {
             display: flex;
@@ -615,7 +666,7 @@
         .nav-arrow {
             width: 40px;
             height: 40px;
-            border: 1px solid #ddd;
+            border: 1px solid #8C4F47;
             background: white;
             display: flex;
             align-items: center;
@@ -625,7 +676,17 @@
         }
 
         .nav-arrow:hover {
-            background-color: #f5f5f5;
+            background-color: #8C4F47;
+            color: white;
+        }
+
+        .nav-arrow i {
+            color: #8C4F47;
+            font-size: 14px;
+        }
+
+        .nav-arrow:hover i {
+            color: white;
         }
 
         .top-product-grid {
@@ -694,7 +755,7 @@
         }
 
             .new-arrivals-title {
-                font-size: 24px;
+                font-size: 40px;
                 font-weight: bold;
                 color: #8C4F47;
                 margin: 0;
@@ -741,9 +802,9 @@
 
         .new-product-card {
             background: white;
-            /* border-radius: 8px; */
-            padding: 20px;
-            /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
+            border: none;
+            padding: 0;
+            box-shadow: none;
             transition: transform 0.3s ease;
             will-change: transform;
             -webkit-transform: translateZ(0);
@@ -756,15 +817,20 @@
 
         .new-product-image {
             width: 100%;
-            height: 200px;
+            height: 270px;
             object-fit: cover;
             /* border-radius: 8px; */
-            margin-bottom: 15px;
+            margin-bottom: 0;
+         
+        }
+
+        .new-product-content {
+            padding: 20px;
         }
 
         .new-product-price {
             font-size: 18px;
-            font-weight: bold;
+            font-weight: 500;
             color: #006e5f;
             margin-bottom: 5px;
         }
@@ -774,6 +840,7 @@
             color: #999;
             font-size: 14px;
             margin-right: 5px;
+            margin-left: 10px;
         }
 
         .new-product-title {
@@ -787,6 +854,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+        }
+
+        .new-product-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0;
+            text-align: left;
         }
 
         .product-icons {
@@ -874,18 +950,19 @@
 
         .collection-overlay {
             position: absolute;
-            bottom: -40px;
-            right: -120px;
+            bottom: -20px;
+            right: -60px;
             background-color: #F8F5EF;
             padding: 40px;
             width: 330px;
             height: 230px;
-            text-align: left;
+            text-align: center;
             /* box-shadow: 0 4px 15px rgba(0,0,0,0.1); */
             z-index: 2;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
         }
 
         .collection-small-text {
@@ -1007,7 +1084,7 @@
         }
 
             .gift-hampers-title {
-                font-size: 24px;
+                font-size: 40px;
                 font-weight: bold;
                 color: #8C4F47;
                 margin: 0;
@@ -1057,9 +1134,9 @@
 
         .gift-hamper-card {
             background: white;
-            /* border-radius: 8px; */
-            padding: 20px;
-            /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
+            border: none;
+            padding: 0;
+            box-shadow: none;
             transition: transform 0.3s ease;
             text-align: center;
             will-change: transform;
@@ -1072,16 +1149,20 @@
         }
 
         .gift-hamper-image {
-            width: 100%;
-            height: 230px;
+             width: 100%;
+            height: 270px;
             object-fit: cover;
             /* border-radius: 8px; */
-            margin-bottom: 15px;
+            margin-bottom: 0;
+        }
+
+        .gift-hamper-content {
+            padding: 20px;
         }
 
         .gift-hamper-price {
             font-size: 18px;
-            font-weight: bold;
+            font-weight: 500;
             color: #006e5f;
             margin-bottom: 5px;
             text-align: start;
@@ -1092,6 +1173,7 @@
             color: #999;
             font-size: 14px;
             margin-right: 5px;
+            margin-left: 10px;
         }
 
         .gift-hamper-title {
@@ -1106,6 +1188,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+        }
+
+        .gift-hamper-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: brown;
+            margin-bottom: 0;
+            text-align: left;
         }
 
         .gift-hamper-icons {
@@ -1164,7 +1255,7 @@
         }
 
             .image-gallery-title {
-                font-size: 24px;
+                font-size: 40px;
                 font-weight: bold;
                 color: #8C4F47;
                 margin: 0 0 15px 0;
@@ -1326,7 +1417,7 @@
         }
 
         .newsletter-title {
-            font-size: 24px;
+            font-size: 40px;
             font-weight: bold;
             color: #8C4F47;
             margin: 0 0 15px 0;
@@ -1644,9 +1735,63 @@
                 margin: 0 auto;
             }
 
+            .top-product-title {
+                font-size: 22px;
+            }
+
+            .top-product-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .top-product-controls {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: flex;
+                gap: 8px;
+            }
+
+            .filter-buttons {
+                display: none;
+            }
+
+            .mobile-only {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .filter-btn {
+                font-size: 12px;
+                padding: 5px 0;
+            }
+
+            .top-product-nav {
+                gap: 8px;
+            }
+
+            .nav-arrow {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-arrow i {
+                font-size: 12px;
+            }
+
             .top-product-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
+            }
+
+            .new-arrivals-title {
+                font-size: 22px;
             }
 
             .new-arrivals-grid {
@@ -1678,6 +1823,10 @@
                 width: 200px;
                 height: 130px;
                 text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .collection-title {
@@ -1790,7 +1939,7 @@
             }
 
             .image-gallery-title {
-                font-size: 24px;
+                font-size: 22px;
                 margin-bottom: 15px;
             }
 
@@ -1798,6 +1947,10 @@
                 font-size: 16px;
                 line-height: 1.5;
                 color: #666;
+            }
+
+            .newsletter-title {
+                font-size: 22px;
             }
 
             .newsletter-form {
@@ -1860,6 +2013,10 @@
             .product-card {
                 flex: 0 0 280px;
                 scroll-snap-align: start;
+            }
+
+            .gift-hampers-title {
+                font-size: 22px;
             }
 
             .gift-hampers-grid {
@@ -2073,7 +2230,23 @@
         <div class="top-product-container">
             <div class="top-product-header">
                 <h2 class="top-product-title">Top Product</h2>
-                <div class="top-product-nav">
+                <div class="top-product-controls">
+                    
+                    <!-- <div class="top-product-nav">
+                        <div class="nav-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="nav-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="top-product-nav mobile-nav">
+                   <div class="filter-buttons">
+                        <button class="filter-btn active">Resin Art</button>
+                        <button class="filter-btn">Aromatic Candles</button>
+                        <button class="filter-btn">Home Decor</button>
+                    </div>
                     <div class="nav-arrow">
                         <i class="fas fa-chevron-left"></i>
                     </div>
@@ -2081,6 +2254,12 @@
                         <i class="fas fa-chevron-right"></i>
                     </div>
                 </div>
+                
+            </div>
+            <div class="filter-buttons mobile-only">
+                <button class="filter-btn active">Resin Art</button>
+                <button class="filter-btn">Aromatic Candles</button>
+                <button class="filter-btn">Home Decor</button>
             </div>
             <div class="top-product-grid">
                 <div class="product-card">
@@ -2122,45 +2301,48 @@
                 
                 <div class="new-product-card">
                     <img src="assets/images/product5.png" alt="Little Flower Earring" class="new-product-image">
-                    <div class="new-product-price">
-                        <span class="strikethrough">200</span>Rs222.00
-                    </div>
-                    <h3 class="new-product-title">Little Flower Earring</h3>
-                    <div class="new-product-actions">
-                        <div></div>
-                        <div class="product-icons">
-                            <i class="far fa-heart product-icon"></i>
-                            <i class="fas fa-shopping-bag product-icon"></i>
+                    <div class="new-product-content">
+                        <div class="new-product-price">
+                            Rs222.00<span class="strikethrough">200</span>
+                        </div>
+                        <div class="new-product-actions">
+                            <h3 class="new-product-title">Little Flower Earring</h3>
+                            <div class="product-icons">
+                                <i class="far fa-heart product-icon"></i>
+                                <i class="fas fa-shopping-bag product-icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="new-product-card">
                     <img src="assets/images/product6.png" alt="Choco Jar Candle" class="new-product-image">
-                    <div class="new-product-price">
-                        <span class="strikethrough">200</span>Rs222.00
-                    </div>
-                    <h3 class="new-product-title">Choco Jar Candle</h3>
-                    <div class="new-product-actions">
-                        <div></div>
-                        <div class="product-icons">
-                            <i class="far fa-heart product-icon"></i>
-                            <i class="fas fa-shopping-bag product-icon"></i>
+                    <div class="new-product-content">
+                        <div class="new-product-price">
+                            Rs222.00<span class="strikethrough">200</span>
+                        </div>
+                        <div class="new-product-actions">
+                            <h3 class="new-product-title">Choco Jar Candle</h3>
+                            <div class="product-icons">
+                                <i class="far fa-heart product-icon"></i>
+                                <i class="fas fa-shopping-bag product-icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="new-product-card">
                     <img src="assets/images/product7.png" alt="Press Flower Bracelet" class="new-product-image">
-                    <div class="new-product-price">
-                        <span class="strikethrough">222.00</span>Rs222.00
-                    </div>
-                    <h3 class="new-product-title">Press Flower Bracelet</h3>
-                    <div class="new-product-actions">
-                        <div></div>
-                        <div class="product-icons">
-                            <i class="far fa-heart product-icon"></i>
-                            <i class="fas fa-shopping-bag product-icon"></i>
+                    <div class="new-product-content">
+                        <div class="new-product-price">
+                            Rs222.00<span class="strikethrough">222.00</span>
+                        </div>
+                        <div class="new-product-actions">
+                            <h3 class="new-product-title">Press Flower Bracelet</h3>
+                            <div class="product-icons">
+                                <i class="far fa-heart product-icon"></i>
+                                <i class="fas fa-shopping-bag product-icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2183,15 +2365,15 @@
             <div class="collections-grid">
                 <div class="collection-card festive-collection">
                     <div class="collection-overlay">
-                        <div class="collection-small-text"style="text-align: center;" >MUST SEE NEW STYLE</div>
-                        <div class="collection-title" style="text-align: center;">Festive <br> Collections</div>
+                        <div class="collection-small-text">MUST SEE NEW STYLE</div>
+                        <div class="collection-title">Festive <br> Collections</div>
                         <button class="collection-shop-btn">Shop Now</button>
                     </div>
                 </div>
                 <div class="collection-card limited-edition">
                     <div class="collection-overlay">
-                        <div class="collection-small-text"style="text-align: center;">NEW COLLECTION</div>
-                        <div class="collection-title"style="text-align: center;">Limited <br> Edition</div>
+                        <div class="collection-small-text">NEW COLLECTION</div>
+                        <div class="collection-title">Limited <br> Edition</div>
                         <button class="collection-shop-btn">Shop Now</button>
                     </div>
                 </div>
@@ -2218,45 +2400,48 @@
                 
                 <div class="gift-hamper-card">
                     <img src="assets/images/card3.png" alt="Purple Box" class="gift-hamper-image">
-                    <div class="gift-hamper-price">
-                        <span class="strikethrough">Rs. 1000</span>Rs. 999.00
-                    </div>
-                    <h3 class="gift-hamper-title">Purple Box</h3>
-                    <div class="gift-hamper-actions">
-                        <div></div>
-                        <div class="gift-hamper-icons">
-                            <i class="far fa-heart gift-hamper-icon"></i>
-                            <i class="fas fa-share-alt gift-hamper-icon"></i>
+                    <div class="gift-hamper-content">
+                        <div class="gift-hamper-price">
+                            Rs. 999.00<span class="strikethrough">Rs. 1000</span>
+                        </div>
+                        <div class="gift-hamper-actions">
+                            <h3 class="gift-hamper-title">Purple Box</h3>
+                            <div class="gift-hamper-icons">
+                                <i class="far fa-heart gift-hamper-icon"></i>
+                                <i class="fas fa-share-alt gift-hamper-icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="gift-hamper-card">
                     <img src="assets/images/card4.png" alt="Ocean Blue" class="gift-hamper-image">
-                    <div class="gift-hamper-price">
-                        <span class="strikethrough">Rs. 1000</span>Rs. 999.00
-                    </div>
-                    <h3 class="gift-hamper-title">Ocean Blue</h3>
-                    <div class="gift-hamper-actions">
-                        <div></div>
-                        <div class="gift-hamper-icons">
-                            <i class="far fa-heart gift-hamper-icon"></i>
-                            <i class="fas fa-share-alt gift-hamper-icon"></i>
+                    <div class="gift-hamper-content">
+                        <div class="gift-hamper-price">
+                            Rs. 999.00<span class="strikethrough">Rs. 1000</span>
+                        </div>
+                        <div class="gift-hamper-actions">
+                            <h3 class="gift-hamper-title">Ocean Blue</h3>
+                            <div class="gift-hamper-icons">
+                                <i class="far fa-heart gift-hamper-icon"></i>
+                                <i class="fas fa-share-alt gift-hamper-icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="gift-hamper-card">
                     <img src="assets/images/card5.png" alt="Brown Bunch" class="gift-hamper-image">
-                    <div class="gift-hamper-price">
-                        <span class="strikethrough">Rs. 1000</span>Rs. 999.00
-                    </div>
-                    <h3 class="gift-hamper-title">Brown Bunch</h3>
-                    <div class="gift-hamper-actions">
-                        <div></div>
-                        <div class="gift-hamper-icons">
-                            <i class="far fa-heart gift-hamper-icon"></i>
-                            <i class="fas fa-share-alt gift-hamper-icon"></i>
+                    <div class="gift-hamper-content">
+                        <div class="gift-hamper-price">
+                            Rs. 999.00<span class="strikethrough">Rs. 1000</span>
+                        </div>
+                        <div class="gift-hamper-actions">
+                            <h3 class="gift-hamper-title">Brown Bunch</h3>
+                            <div class="gift-hamper-icons">
+                                <i class="far fa-heart gift-hamper-icon"></i>
+                                <i class="fas fa-share-alt gift-hamper-icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2481,18 +2666,30 @@
         function initProductSliders() {
             // Top Products Slider
             const topProductGrid = document.querySelector('.top-product-grid');
-            const topProductNavLeft = document.querySelector('.top-product-nav .nav-arrow:first-child');
-            const topProductNavRight = document.querySelector('.top-product-nav .nav-arrow:last-child');
+            const topProductNavLeft = document.querySelectorAll('.nav-arrow')[0];
+            const topProductNavRight = document.querySelectorAll('.nav-arrow')[1];
 
-            if (topProductNavLeft && topProductNavRight) {
-                topProductNavLeft.addEventListener('click', function() {
+            if (topProductNavLeft && topProductNavRight && topProductGrid) {
+                console.log('Navigation arrows found, adding click events');
+                
+                topProductNavLeft.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Left arrow clicked');
                     const scrollAmount = window.innerWidth <= 768 ? 300 : 300;
                     topProductGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
                 });
 
-                topProductNavRight.addEventListener('click', function() {
+                topProductNavRight.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Right arrow clicked');
                     const scrollAmount = window.innerWidth <= 768 ? 300 : 300;
                     topProductGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            } else {
+                console.log('Navigation elements not found:', {
+                    left: topProductNavLeft,
+                    right: topProductNavRight,
+                    grid: topProductGrid
                 });
             }
 
@@ -2564,10 +2761,30 @@
             });
         }
 
+        // Filter button functionality
+        function initFilterButtons() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Here you can add logic to filter products based on the selected category
+                    const category = this.textContent.trim();
+                    console.log('Filtered by:', category);
+                    // You can implement actual filtering logic here
+                });
+            });
+        }
+
         // Initialize sliders when page loads
         document.addEventListener('DOMContentLoaded', function() {
             initProductSliders();
             initTouchSliders();
+            initFilterButtons();
         });
 
         // Sticky header functionality
