@@ -1,5 +1,4 @@
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,7 +62,7 @@
         /* Navbar */
         .navbar {
             background-color: white;
-            padding: 20px 0;
+            padding: 5px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -490,20 +489,63 @@
             background-color: #006E5F;
         }
 
-        /* Banner */
+        /* Banner Slider */
         .banner {
             position: relative;
             height: 100vh;
-            background-image: url('assets/images/banner\ \(2\).png');
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
             display: flex;
             align-items: flex-end;
             padding: 40px;
         }
-        
+
+        .banner-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 1.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .banner-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .banner-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right,
+                rgba(255, 255, 255, 0.8) 3%,    /* left bilkul white */
+                rgba(255, 255, 255, 0.1) 10%,   /* 10% tak halki safedi */
+                transparent 30%);               /* 30% tak fade ho jaye */
+        }
+
+        .banner-slide-1 {
+            background-image: url('assets/images/banner (2).png');
+        }
+
+        .banner-slide-2 {
+            background-image: url('assets/images/banner3.png');
+        }
+
+        .banner-slide-3 {
+            background-image: url('assets/images/banner4.png');
+        }
 
         .banner-content {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -511,26 +553,11 @@
             margin-left: 8%;
         }
 
-        .banner {
-    position: relative;
-    height: 100vh;
-    background:
-        linear-gradient(to right,
-            rgba(255, 255, 255, 0.8) 3%,    /* left bilkul white */
-            rgba(255, 255, 255, 0.1) 10%,   /* 10% tak halki safedi */
-            transparent 30%),               /* 30% tak fade ho jaye */
-        url('assets/images/banner (2).png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
-    padding: 40px;
-}
-.banner-logo {
-    margin-left: 12%;
-    height: 150px;
-    width: 130px;
-}
+        .banner-logo {
+            margin-left: 12%;
+            height: 150px;
+            width: 130px;
+        }
         @media (max-width: 768px) {
             .banner-logo {
                 visibility: hidden;
@@ -561,24 +588,33 @@
         /* Carousel Indicators */
         .carousel-indicators {
             position: absolute;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            z-index: 3;
         }
 
         .indicator {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.6);
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .indicator:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
         }
 
         .indicator.active {
-            background-color: #008080;
+            background-color: #8C4F47;
+            border-color: #8C4F47;
+            transform: scale(1.1);
         }
 
         /* Top Product Section */
@@ -1723,16 +1759,19 @@
                 max-width: 100%;
             }
 
-            .banner-title {
-                text-align: center;
+            .banner-logo {
+                margin-left: 0;
+                height: 100px;
+                width: 80px;
             }
 
-            .banner-description {
-                text-align: center;
+            .carousel-indicators {
+                bottom: 15px;
             }
 
-            .banner-button {
-                margin: 0 auto;
+            .indicator {
+                width: 10px;
+                height: 10px;
             }
 
             .top-product-title {
@@ -2127,8 +2166,8 @@
 
             <!-- Navigation Links -->
             <div class="nav-links-main">
-                <a href="#" class="nav-link-main active">HOME</a>
-                <a href="#" class="nav-link-main">PRODUCTS</a>
+                <a href="index.html" class="nav-link-main active">HOME</a>
+                <a href="products.html" class="nav-link-main">PRODUCTS</a>
                 <a href="#" class="nav-link-main">ABOUT US</a>
                 <a href="#" class="nav-link-main">CONTACT</a>
             </div>
@@ -2136,10 +2175,10 @@
             <!-- User Actions -->
             <div class="user-actions">
                 <i class="fas fa-search action-icon search-icon-mobile"></i>
-                <i class="fas fa-user action-icon desktop-only"></i>
+                <i class="far fa-user action-icon desktop-only"></i>
                 <i class="far fa-heart action-icon desktop-only"></i>
                 <div class="action-icon">
-                    <i class="fas fa-shopping-bag"></i>
+                    <img src="assets/images/shopping-bag.svg" alt="Cart" width="20" height="20">
                     <div class="cart-notification"></div>
                 </div>
             </div>
@@ -2212,6 +2251,12 @@
 
     <!-- Banner -->
     <div class="banner">
+        <div class="banner-slider">
+            <div class="banner-slide banner-slide-1"></div>
+            <div class="banner-slide banner-slide-2"></div>
+            <div class="banner-slide banner-slide-3"></div>
+        </div>
+        
         <div class="banner-content">
             <img src="assets/images/logo.png" alt="Tiny Treasures Logo" class="banner-logo">
             <button class="shop-now-btn">SHOP NOW</button>
@@ -2219,9 +2264,9 @@
         
         <!-- Carousel Indicators -->
         <div class="carousel-indicators">
-            <div class="indicator"></div>
-            <div class="indicator active"></div>
-            <div class="indicator"></div>
+            <div class="indicator" data-slide="0"></div>
+            <div class="indicator active" data-slide="1"></div>
+            <div class="indicator" data-slide="2"></div>
         </div>
     </div>
 
@@ -2309,7 +2354,7 @@
                             <h3 class="new-product-title">Little Flower Earring</h3>
                             <div class="product-icons">
                                 <i class="far fa-heart product-icon"></i>
-                                <i class="fas fa-shopping-bag product-icon"></i>
+                                <img src="assets/images/shopping-bag.svg" alt="Cart" class="product-icon" width="18" height="18">
                             </div>
                         </div>
                     </div>
@@ -2325,7 +2370,7 @@
                             <h3 class="new-product-title">Choco Jar Candle</h3>
                             <div class="product-icons">
                                 <i class="far fa-heart product-icon"></i>
-                                <i class="fas fa-shopping-bag product-icon"></i>
+                                <img src="assets/images/shopping-bag.svg" alt="Cart" class="product-icon" width="18" height="18">
                             </div>
                         </div>
                     </div>
@@ -2341,7 +2386,7 @@
                             <h3 class="new-product-title">Press Flower Bracelet</h3>
                             <div class="product-icons">
                                 <i class="far fa-heart product-icon"></i>
-                                <i class="fas fa-shopping-bag product-icon"></i>
+                                <img src="assets/images/shopping-bag.svg" alt="Cart" class="product-icon" width="18" height="18">
                             </div>
                         </div>
                     </div>
@@ -2780,8 +2825,91 @@
             });
         }
 
+        // Banner Slider Functionality
+        function initBannerSlider() {
+            const slider = document.querySelector('.banner-slider');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentSlide = 1; // Start with second slide (index 1)
+            let slideInterval;
+            let isAutoSliding = true;
+            let isTransitioning = false;
+
+            function updateSlider() {
+                if (isTransitioning) return;
+                
+                isTransitioning = true;
+                const translateX = -currentSlide * 100;
+                slider.style.transform = `translateX(${translateX}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+
+                // Reset transition flag after animation completes
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 1500); // Match the CSS transition duration
+            }
+
+            function nextSlide() {
+                if (isTransitioning) return;
+                currentSlide = (currentSlide + 1) % 3;
+                updateSlider();
+            }
+
+            function goToSlide(slideIndex) {
+                if (isTransitioning || slideIndex === currentSlide) return;
+                currentSlide = slideIndex;
+                updateSlider();
+            }
+
+            function startAutoSlide() {
+                if (isAutoSliding) {
+                    slideInterval = setInterval(nextSlide, 5000); // Auto slide every 5 seconds
+                }
+            }
+
+            function stopAutoSlide() {
+                clearInterval(slideInterval);
+            }
+
+            function pauseAutoSlide() {
+                isAutoSliding = false;
+                stopAutoSlide();
+            }
+
+            function resumeAutoSlide() {
+                isAutoSliding = true;
+                startAutoSlide();
+            }
+
+            // Add click events to indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    if (isTransitioning) return;
+                    goToSlide(index);
+                    pauseAutoSlide();
+                    // Resume auto slide after 2 seconds
+                    setTimeout(() => {
+                        resumeAutoSlide();
+                    }, 2000);
+                });
+            });
+
+            // Pause auto slide on hover
+            const banner = document.querySelector('.banner');
+            banner.addEventListener('mouseenter', pauseAutoSlide);
+            banner.addEventListener('mouseleave', resumeAutoSlide);
+
+            // Initialize
+            updateSlider();
+            startAutoSlide();
+        }
+
         // Initialize sliders when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            initBannerSlider();
             initProductSliders();
             initTouchSliders();
             initFilterButtons();
